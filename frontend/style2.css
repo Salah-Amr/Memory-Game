@@ -1,0 +1,138 @@
+/* ========================
+   General & Font
+======================== */
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    /* الخط المختار لطابع اللعبة الممتع */
+    font-family: 'Fredoka One', cursive; 
+    color: #fff;
+    text-align: center;
+    overflow-x: hidden;
+    animation: screenIn 0.8s ease-out forwards;
+}
+
+/* ========================
+   Headings & Stats
+======================== */
+h1 {
+    font-size: 50px;
+    margin-bottom: 5px;
+    color: #f1c40f;
+    text-shadow: 3px 3px 0px #c0392b;
+    animation: dropIn 0.7s ease-out forwards;
+}
+
+#congratsMessage {
+    font-size: 32px;
+    line-height: 1.2;
+    opacity: 0;
+    animation: popIn 0.6s ease-out 0.3s forwards;
+}
+
+#congratsMessage span {
+    color: #2ecc71;
+    font-size: 40px;
+    display: inline-block;
+}
+
+.final-stats {
+    display: flex;
+    gap: 25px;
+    margin: 15px 0;
+}
+
+.final-stats h3 {
+    font-size: 20px;
+    background: rgba(255,255,255,0.1);
+    padding: 10px 20px;
+    border-radius: 15px;
+    opacity: 0;
+    animation: fadeUp 0.5s ease-out forwards;
+}
+
+#noOfAttempts { animation: fadeUp 0.5s ease-out 0.6s forwards; }
+#timeMessage { animation: fadeUp 0.5s ease-out 0.8s forwards; }
+
+span {
+    color: #f1c40f;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+/* تأثير اللمعان على النصوص المهمة */
+span::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    transform: translateX(-100%);
+    animation: shine 3s infinite;
+}
+
+/* ========================
+   Button & Links
+======================== */
+#reset {
+    padding: 18px 45px;
+    font-size: 22px;
+    font-family: 'Fredoka One', cursive;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 8px 0px #1e8449; /* شكل زرار كرتوني */
+    transition: all 0.1s ease;
+    animation: pulse 1.8s ease-in-out infinite;
+    margin: 10px 0;
+}
+
+#reset:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+}
+
+#reset:active {
+    transform: translateY(4px); /* إحساس الضغط الحقيقي */
+    box-shadow: 0 2px 0px #1e8449;
+}
+
+#madeBy {
+    margin-top: 40px;
+    font-size: 18px;
+    opacity: 0;
+    animation: fadeUp 0.5s ease-out 1s forwards;
+}
+
+#Me {
+    color: #2ecc71;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+p {
+    font-size: 14px;
+    color: #bdc3c7;
+    opacity: 0;
+    animation: fadeUp 0.5s ease-out 1.2s forwards;
+}
+
+/* ========================
+   Animations
+======================== */
+@keyframes screenIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+@keyframes dropIn { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes popIn { 0% { opacity: 0; transform: scale(0.5); } 80% { transform: scale(1.1); } 100% { opacity: 1; transform: scale(1); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes shine { to { transform: translateX(100%); } }
+@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
